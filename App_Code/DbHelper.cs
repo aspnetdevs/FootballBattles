@@ -10,7 +10,7 @@ using System.Web;
 
 public static class DbHelper
 {
-    public static enum User
+    public enum User
     {
         First,
         Second
@@ -56,14 +56,14 @@ public static class DbHelper
         Dictionary<string, string> parameters = new Dictionary<string, string>();
         parameters.Add("@gameId", gameId);
         string userColumn = user == User.First ? "firstUserId" : "secondUserId";
-        var select = SelectData("select " + userColumn + " from Game where gameId = @gameId", parameters);
-        return select.Rows.Count > 0 ? select.Rows[0][userColumn].ToString() : null;
+        string userId = SelectData("select " + userColumn + " from Game where Id = @gameId", parameters).Rows[0][userColumn].ToString();
+        return userId != string.Empty ? userId.ToLower() : null;
     }
     public static bool IsGame(string gameId)
     {
         Dictionary<string, string> parameters = new Dictionary<string, string>();
         parameters.Add("@gameId", gameId);
-        return SelectData("select Id from Game where gameId = @gameId", parameters)
+        return SelectData("select Id from Game where Id = @gameId", parameters)
                .Rows.Count > 0 ? true : false;
     }
 }

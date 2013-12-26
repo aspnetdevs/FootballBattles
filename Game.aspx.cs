@@ -10,8 +10,8 @@ public partial class Game : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string requestedGameId = Request.QueryString["gameId"];
-        string requestedUserId = Request.QueryString["userId"];
+        string requestedGameId = Request.QueryString["gameId"] != null ? Request.QueryString["gameId"].ToLower() : null;
+        string requestedUserId = Request.QueryString["userId"] != null ? Request.QueryString["userId"].ToLower() : null;
         if (requestedGameId == null)
         {
             //Создание новой игры и первого пользователя
@@ -26,18 +26,22 @@ public partial class Game : System.Web.UI.Page
             string secondUserId = DbHelper.GetUserIdByGame(requestedGameId, DbHelper.User.Second);
             if (requestedUserId == null && secondUserId == null)
             {
+                
                 //Создание второго пользователя и начало игры
                 Guid newSecondUserId = Guid.NewGuid();
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add("@gameId", requestedGameId);
-                DbHelper.ChangeData("Update Game set secondUserId='"+newSecondUserId+"' where gameId = @gameId", parameters);
+                DbHelper.ChangeData("Update Game set secondUserId='"+newSecondUserId+"' where Id = @gameId", parameters);
+                Response.Redirect("~/Game.aspx?gameId=" + requestedGameId + "&userId=" + newSecondUserId);
             }
             else if (requestedUserId == firstUserId)
-            { 
+            {
+                Label1.Text = "1 пользователь загрузился";
                 //Загружаем игру для первого пользователя
             }
             else if (requestedUserId == secondUserId)
             {
+                Label1.Text = "2 пользователь загрузился";
                 //Загружаем игру для второго пользователя
             }
         }
