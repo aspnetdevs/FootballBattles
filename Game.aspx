@@ -8,6 +8,7 @@
     <script src="script/jquery-2.0.0.min.js"></script>
     <script src="script/jquery-migrate-1.2.1.min.js"></script>
     <script src="script/ajaxEngine.js"></script>
+    <script src="script/Silverlight.js"></script>
     <link href="style/main.css" rel="stylesheet" />
     <script>
         $(function () {
@@ -15,7 +16,14 @@
                 action: "checkGameStart",
                 gameId: "<%=requestedGameId%>"
             }, 3000, function () {
-                $("#status").remove();
+                $("#waitOpponentStatus").remove();
+                Silverlight.createObject(
+                    "ClientBin/GamePlugin.xap",
+                    $("#gamePluginPanel")[0],
+                    "gamePlugin",
+                    {
+                        version: '2.0'
+                    });
             });
         });
     </script>
@@ -23,10 +31,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1 id="status" style="text-align: center">Ожидание соперника</h1>
-            <div id="htmlGameWrapper">
-                
-            </div>
+            <h1 id="waitOpponentStatus">Ожидание соперника</h1>
+            <div id="gamePluginPanel"/>
         </div>
     </form>
 </body>
