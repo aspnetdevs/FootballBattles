@@ -7,7 +7,6 @@ using System.Linq;
 using System.Web;
 
 
-
 public static class DbHelper
 {
     public enum User
@@ -15,40 +14,48 @@ public static class DbHelper
         First,
         Second
     }
-    private static SqlConnection sqlConnection =
-            new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
+    private static string connectionString = 
+        ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
 
     public static DataTable SelectData(string query, IDictionary<string, string> parameters = null)
     {
-        SqlCommand cmd = new SqlCommand(query, sqlConnection);
-        if (parameters != null)
+        using (SqlConnection sqlConnection =
+            new SqlConnection(connectionString))
         {
-            foreach (var parameter in parameters)
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            if (parameters != null)
             {
-                cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                foreach (var parameter in parameters)
+                {
+                    cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                }
             }
+            sqlConnection.Open();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            sqlConnection.Close();
+            return dt;
         }
-        sqlConnection.Open();
-        DataTable dt = new DataTable();
-        dt.Load(cmd.ExecuteReader());
-        sqlConnection.Close();
-        return dt;
     }
 
     public static int ChangeData(string query, IDictionary<string, string> parameters = null)
     {
-        SqlCommand cmd = new SqlCommand(query, sqlConnection);
-        if (parameters != null)
+        using (SqlConnection sqlConnection =
+            new SqlConnection(connectionString))
         {
-            foreach (var parameter in parameters)
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            if (parameters != null)
             {
-                cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                foreach (var parameter in parameters)
+                {
+                    cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                }
             }
+            sqlConnection.Open();
+            int rowsAffected = cmd.ExecuteNonQuery();
+            sqlConnection.Close();
+            return rowsAffected;
         }
-        sqlConnection.Open();
-        int rowsAffected = cmd.ExecuteNonQuery();
-        sqlConnection.Close();
-        return rowsAffected;
     }
 
     public static string GetUserIdByGame(string gameId, User user)

@@ -1,0 +1,11 @@
+﻿#htmlGameWrapper {
+    margin: auto;
+    border: 1px solid red;
+    width:100%;
+    height:400px;
+}
+
+#gamePlugin {
+    width: 100%;
+    height: 100%;
+}
