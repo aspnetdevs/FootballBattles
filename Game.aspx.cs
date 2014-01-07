@@ -9,10 +9,12 @@ using System.Web.UI.WebControls;
 public partial class Game : System.Web.UI.Page
 {
     public string requestedGameId;
+    public string requestedUserId;
+    public bool isRequestedGame;
     protected void Page_Load(object sender, EventArgs e)
     {
         requestedGameId = Request.QueryString["gameId"] != null ? Request.QueryString["gameId"].ToLower() : null;
-        string requestedUserId = Request.QueryString["userId"] != null ? Request.QueryString["userId"].ToLower() : null;
+        requestedUserId = Request.QueryString["userId"] != null ? Request.QueryString["userId"].ToLower() : null;
         if (requestedGameId == null)
         {
             //Создание новой игры и первого пользователя
@@ -21,7 +23,8 @@ public partial class Game : System.Web.UI.Page
             DbHelper.ChangeData("Insert into Game values('" + newGameId + "', '" + newFirstUserId + "', null)");
             Response.Redirect("~/Game.aspx?gameId=" + newGameId + "&userId=" + newFirstUserId);
         }
-        else if (DbHelper.IsGame(requestedGameId))
+        isRequestedGame = DbHelper.IsGame(requestedGameId);
+        if (isRequestedGame)
         {
             //Не учитывается то, что первый пользователь мог потерять сеанс
             string firstUserId = DbHelper.GetUserIdByGame(requestedGameId, DbHelper.User.First);
@@ -38,14 +41,19 @@ public partial class Game : System.Web.UI.Page
             }
             else if (requestedUserId == firstUserId)
             {
-
+                //Убрать дублирующую строку во втором пользователе
+                waitOpponentStatus.InnerText = "Ожидание соперника";
                 //Загружаем игру для первого пользователя
             }
             else if (requestedUserId == secondUserId)
             {
+                waitOpponentStatus.InnerText = "Ожидание соперника";
                 //Загружаем игру для второго пользователя
             }
         }
+        else
+            waitOpponentStatus.InnerText = "Такой игры не существует";
+
 
     }
 }

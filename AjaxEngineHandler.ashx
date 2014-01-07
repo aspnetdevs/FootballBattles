@@ -5,6 +5,7 @@ using System.Web;
 
 public class AjaxEngineHandler : IHttpHandler {
     
+    //Если запрос повторяющийся, тогда для его остановки нужно возвращать "stop"
     public void ProcessRequest (HttpContext context) {
         var requestedParams = context.Request.Params;
         bool repeatedRequest = Convert.ToBoolean(requestedParams["repeated"]);

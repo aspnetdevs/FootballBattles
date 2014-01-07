@@ -1,7 +1,10 @@
-﻿#gamePluginPanel {
+﻿body {
+    background-color:#ddd;
+}
+#gamePluginPanel {
     margin: auto;
-    height:400px;
-    width:600px;
+    height:480px;
+    width:720px;
 }
 
 #gamePlugin {

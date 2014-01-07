@@ -11,6 +11,8 @@
     <script src="script/Silverlight.js"></script>
     <link href="style/main.css" rel="stylesheet" />
     <script>
+        <% if (requestedGameId != null && isRequestedGame && requestedUserId != null)
+           {%>
         $(function () {
             Engine.ajax.repeatedRequest({
                 action: "checkGameStart",
@@ -26,13 +28,14 @@
                     });
             });
         });
+        <% } %>
     </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1 id="waitOpponentStatus">Ожидание соперника</h1>
-            <div id="gamePluginPanel"/>
+            <h1 id="waitOpponentStatus" runat="server">Ожидание соперника</h1>
+            <div id="gamePluginPanel" />
         </div>
     </form>
 </body>
