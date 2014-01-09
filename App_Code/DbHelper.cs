@@ -73,4 +73,21 @@ public static class DbHelper
         return SelectData("select Id from Game where Id = @gameId", parameters)
                .Rows.Count > 0 ? true : false;
     }
+    public static bool IsUserInGame(string gameId, string userId)
+    {
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@firstUserId", userId);
+        parameters.Add("@secondUserId", userId);
+        return SelectData("select Id from Game where Id = @gameId AND (firstUserId = @firstUserId OR secondUserId = @secondUserId)", parameters).Rows.Count > 0;
+    }
+    public static bool IsFirstUser(string gameId, string userId)
+    {
+        if (!IsUserInGame(gameId, userId))
+            throw new Exception();
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@firstUserId", userId);
+        return SelectData("select * from Game where Id = @gameId AND firstUserId = @firstUserId", parameters).Rows.Count > 0;
+    }
 }
