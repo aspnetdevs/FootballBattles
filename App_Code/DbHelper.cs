@@ -90,4 +90,64 @@ public static class DbHelper
         parameters.Add("@firstUserId", userId);
         return SelectData("select * from Game where Id = @gameId AND firstUserId = @firstUserId", parameters).Rows.Count > 0;
     }
+    public static bool ExistsUserMove(string gameId, string userId)
+    { 
+        if (!IsUserInGame(gameId, userId))
+            throw new Exception();
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@userId", userId);
+        return SelectData("select * from Move where GameId = @gameId AND UserId = @userId", parameters).Rows.Count > 0;
+    }
+
+    public static void SetMoveMetadata(string gameId, string userId, string metadata, int currentMoveNumber)
+    {
+        currentMoveNumber++;
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@userId", userId);
+        parameters.Add("@metadata", metadata);
+        parameters.Add("@currentMoveNumber", currentMoveNumber.ToString());
+        if (!ExistsUserMove(gameId, userId))
+        {
+            ChangeData("insert into Move values (NEWID(), @gameId, @userId, @metadata, @currentMoveNumber)", parameters);
+        }
+        else 
+        {
+            ChangeData("update Move set Metadata = @metadata, CurrentNumber = @currentMoveNumber where GameId = @gameId AND UserId = @userId", parameters);
+        }
+    }
+    public static string GetOpponentIdByUserId(string gameId, string userId)
+    {
+        if (!IsGame(gameId))
+            throw new Exception();
+        string opponentId;
+        if (IsFirstUser(gameId, userId))
+            opponentId = GetUserIdByGame(gameId, User.Second);
+        else
+            opponentId = GetUserIdByGame(gameId, User.First);
+        return opponentId;
+    }
+    public static bool IsEndOpponentMove(string gameId, string userId)
+    {
+        //Убрать привязку к IsReaded.
+        if (!ExistsUserMove(gameId, userId))
+            throw new Exception();
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@userId", userId);
+        parameters.Add("@opponentId", GetOpponentIdByUserId(gameId, userId));
+        var result = SelectData("select * from Move where GameId = @gameId AND (UserId = @userId OR UserId = @opponentId)", parameters);
+        if (result.Rows.Count != 2)
+            return false;
+        else
+        {
+            int firstMoveNumber = Convert.ToInt32(result.Rows[0]["CurrentNumber"]);
+            int secondMoveNumber = Convert.ToInt32(result.Rows[1]["CurrentNumber"]);
+            if (firstMoveNumber == secondMoveNumber)
+                return true;
+            else
+                return false;
+        }
+    }
 }

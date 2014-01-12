@@ -20,7 +20,7 @@ public class GameService
         bool isFirstUser = DbHelper.IsFirstUser(gameId, userId);
         Metadata metadata = new Metadata();
         //Создавать через foreach, когда будет вытягиваться коллекция из БД
-        metadata.Players = new[] {
+        metadata.Players = new List<PlayerMetadata> {
             new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=50, Top=240, SolidColor="Yellow", IsOpponent=!isFirstUser },
             new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=90, SolidColor="Yellow", IsOpponent=!isFirstUser },
             new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
@@ -48,6 +48,17 @@ public class GameService
         return GetJsonString(metadata);
 
     }
+
+    [OperationContract]
+    public void SetMoveMetadata(string gameId, string userId, string metadata, int currentMoveNumber)
+    {
+        DbHelper.SetMoveMetadata(gameId, userId, metadata, currentMoveNumber);
+    }
+
+    public string GetMoveMetadata(string gameId, string userId)
+    {
+        return null;
+    }
     private string GetJsonString(Metadata metadata)
     {
         using (MemoryStream stream = new MemoryStream())
@@ -68,7 +79,7 @@ public class GameService
 
 public class Metadata
 {
-    public IEnumerable<PlayerMetadata> Players { get; set; }
+    public List<PlayerMetadata> Players { get; set; }
 }
 public class PlayerMetadata
 {

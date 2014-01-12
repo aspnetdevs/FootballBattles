@@ -10,10 +10,20 @@
     <script src="script/ajaxEngine.js"></script>
     <script src="script/Silverlight.js"></script>
     <link href="style/main.css" rel="stylesheet" />
-    <script>
+    <script type="text/javascript">
+        
         <% if (requestedGameId != null && isRequestedGame && requestedUserId != null)
            {%>
         $(function () {
+            window.checkEndOpponentMove = function () {
+                Engine.ajax.repeatedRequest({
+                    action: "checkEndOpponentMove",
+                    gameId: "<%=requestedGameId%>",
+                    userId: "<%=requestedUserId%>"
+               }, 3000, function () {
+                   $("#gamePlugin")[0].content.GamePluginObject.GetMoveMetadata();
+               });
+            }
             Engine.ajax.repeatedRequest({
                 action: "checkGameStart",
                 gameId: "<%=requestedGameId%>"
