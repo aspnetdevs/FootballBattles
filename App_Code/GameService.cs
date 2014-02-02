@@ -21,29 +21,29 @@ public class GameService
         Metadata metadata = new Metadata();
         //Создавать через foreach, когда будет вытягиваться коллекция из БД
         metadata.Players = new List<PlayerMetadata> {
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=50, Top=240, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=90, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=390, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=90, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=390, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=320, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=320, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser},
+            new PlayerMetadata { Tag="a1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=50, Top=240, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="b1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=90, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="c1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="d1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="e1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=120, Top=390, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="f1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=90, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="g1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="h1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="i1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=220, Top=390, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="j1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=320, Top=190, SolidColor="Yellow", IsOpponent=!isFirstUser },
+            new PlayerMetadata { Tag="k1", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=320, Top=290, SolidColor="Yellow", IsOpponent=!isFirstUser},
 
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=670, Top=240, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=90, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=290, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=390, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=90, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=290, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=390, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=400, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
-            new PlayerMetadata { Tag=Guid.NewGuid(), BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=400, Top=290, SolidColor="Blue", IsOpponent=isFirstUser},
+            new PlayerMetadata { Tag="a2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=670, Top=240, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="b2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=90, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="c2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="d2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=290, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="e2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=600, Top=390, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="f2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=90, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="g2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="h2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=290, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="i2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=500, Top=390, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="j2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=400, Top=190, SolidColor="Blue", IsOpponent=isFirstUser },
+            new PlayerMetadata { Tag="k2", BallControl=Random(), BodyBalance=Random(), LongPass=Random(), LongPassAccuracy=Random(), Power=Random(), Run=Random(), Shoot=Random(), ShootAccuracy=Random(), ShortPass=Random(), ShortPassAccuracy=Random(), Speed=Random(), Stamina=Random(),Left=400, Top=290, SolidColor="Blue", IsOpponent=isFirstUser},
         };
         return GetJsonString(metadata);
 
@@ -55,9 +55,10 @@ public class GameService
         DbHelper.SetMoveMetadata(gameId, userId, metadata, currentMoveNumber);
     }
 
+    [OperationContract]
     public string GetMoveMetadata(string gameId, string userId)
     {
-        return null;
+        return DbHelper.GetMoveMetadata(gameId, userId);
     }
     private string GetJsonString(Metadata metadata)
     {
@@ -70,10 +71,10 @@ public class GameService
         }
     }
     //Убрать этот метод после реализации метаданных в БД
-    private byte Random()
+    private double Random()
     {
-        Random r = new Random(Environment.TickCount);
-        return (byte)r.Next(50, 100);
+        Random r = new Random((int)Math.Pow(Environment.TickCount, 4));
+        return (double)r.Next(50, 100);
     }
 }
 
@@ -83,21 +84,21 @@ public class Metadata
 }
 public class PlayerMetadata
 {
-    public Guid Tag { get; set; }
+    public string Tag { get; set; }
     public string SolidColor { get; set; }
     public int Left { get; set; }
     public int Top { get; set; }
     public bool IsOpponent { get; set; }
-    public byte Run { get; set; }
-    public byte ShortPass { get; set; }
-    public byte LongPass { get; set; }
-    public byte Shoot { get; set; }
-    public byte ShortPassAccuracy { get; set; }
-    public byte LongPassAccuracy { get; set; }
-    public byte ShootAccuracy { get; set; }
-    public byte Power { get; set; }
-    public byte Speed { get; set; }
-    public byte Stamina { get; set; }
-    public byte BodyBalance { get; set; }
-    public byte BallControl { get; set; }
+    public double Run { get; set; }
+    public double ShortPass { get; set; }
+    public double LongPass { get; set; }
+    public double Shoot { get; set; }
+    public double ShortPassAccuracy { get; set; }
+    public double LongPassAccuracy { get; set; }
+    public double ShootAccuracy { get; set; }
+    public double Power { get; set; }
+    public double Speed { get; set; }
+    public double Stamina { get; set; }
+    public double BodyBalance { get; set; }
+    public double BallControl { get; set; }
 }

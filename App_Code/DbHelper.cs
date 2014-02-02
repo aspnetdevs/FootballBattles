@@ -117,6 +117,14 @@ public static class DbHelper
             ChangeData("update Move set Metadata = @metadata, CurrentNumber = @currentMoveNumber where GameId = @gameId AND UserId = @userId", parameters);
         }
     }
+
+    public static string GetMoveMetadata(string gameId, string userId)
+    {
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        parameters.Add("@gameId", gameId);
+        parameters.Add("@userId", GetOpponentIdByUserId(gameId, userId));
+        return SelectData("select * from Move where GameId = @gameId AND UserId = @userId", parameters).Rows[0]["Metadata"].ToString();
+    }
     public static string GetOpponentIdByUserId(string gameId, string userId)
     {
         if (!IsGame(gameId))
